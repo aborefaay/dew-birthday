@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عيد ميلاد بنوتي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>فاضل على عيد ميلادك يبيضه </h1>
+    <div id="countdown"></div>
+
+    <script>
+        // تحديد موعد مستقبلي (مثلاً 31 ديسمبر 2024، الساعة 23:59:59)
+        var countDownDate = new Date("sep 30, 2024 00:00:00").getTime();
+
+        // تحديث العداد كل ثانية
+        var x = setInterval(function() {
+
+            // الحصول على الوقت الحالي
+            var now = new Date().getTime();
+
+            // حساب الفرق بين الوقت الحالي والموعد المحدد
+            var distance = countDownDate - now;
+
+            // حساب الأيام، الساعات، الدقائق، والثواني
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // عرض الوقت المتبقي في الصفحة
+            document.getElementById("countdown").innerHTML = days + " days " + hours + " hours "
+            + minutes + " minutes " + seconds + " seconds ";
+
+            // إذا انتهى العداد
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("countdown").innerHTML = "عيد ميلاد النونه!";
+            }
+        }, 1000);
+    </script>
+
+</body>
+</html>
